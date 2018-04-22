@@ -1,6 +1,5 @@
-.bgColor {
+.footer-bgcolor {
   background-color: #282C35;
-  height: 100px;
 }
 
 .footerlinks {
@@ -10,8 +9,11 @@
   justify-content: space-around;
 }
 
-a {
+.footer-color {
   color: #D2D6DF;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 footer {
@@ -19,4 +21,8 @@ footer {
   bottom: 0;
   position: absolute;
   width: 100%;
+}
+
+.footer-border {
+  border-bottom: 1px solid #363A43;
 }
