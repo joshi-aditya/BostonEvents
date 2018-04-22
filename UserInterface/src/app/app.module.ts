@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {CategoriesComponent} from './components/home/categories/categories.component';
+import { CarouselComponent } from './components/home/carousel/carousel.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {CategoriesComponent} from './components/home/categories/categories.compo
     CategoriesComponent,
     HomeComponent,
     NavigationBarComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule

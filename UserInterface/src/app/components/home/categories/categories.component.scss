@@ -1,0 +1,67 @@
+.bg-img-music {
+  background: url("https://cdn.evbstatic.com/s3-build/23450-rc2018-04-18_16.04-4e3e80c/django/images/home/categories/220/img_category_music.jpg") no-repeat;
+  background-size: cover;
+}
+
+.bg-img-classes {
+  background: url("https://cdn.evbstatic.com/s3-build/23450-rc2018-04-18_16.04-4e3e80c/django/images/home/categories/220/img_category_classes.jpg") no-repeat;
+  background-size: cover;
+}
+
+.bg-img-networking {
+  background: url("https://cdn.evbstatic.com/s3-build/23450-rc2018-04-18_16.04-4e3e80c/django/images/home/categories/220/img_category_networking.jpg") no-repeat;
+  background-size: cover;
+}
+
+.bg-img-sports {
+  background: url("https://cdn.evbstatic.com/s3-build/23450-rc2018-04-18_16.04-4e3e80c/django/images/home/categories/220/img_category_sports.jpg") no-repeat;
+  background-size: cover;
+}
+
+.bg-img-arts {
+  background: url("https://cdn.evbstatic.com/s3-build/23450-rc2018-04-18_16.04-4e3e80c/django/images/home/categories/220/img_category_arts.jpg") no-repeat;
+  background-size: cover;
+}
+
+.bg-img{
+  height: 100%;
+}
+
+.bg-tint:hover {
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.card-text {
+  p {
+    transition: .5s ease;
+    opacity: 0;
+    font-size: small;
+  }
+  h3 {
+    padding-top: 93px;
+  }
+}
+
+.bg-img:hover {
+  transform: scale(1.12);
+  .card-text {
+    p {
+      opacity: 1;
+    }
+  }
+}
+.card-image {
+  transition: transform .35s;
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 220px;
+  background: #EFF2F5 no-repeat center;
+}
+
+.card-wrapper {
+  overflow: hidden;
+}
+
