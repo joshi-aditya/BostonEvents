@@ -9,7 +9,10 @@ export class NavigationBarComponent implements OnInit {
 
   constructor() { }
 
+  name: string;
+
   ngOnInit() {
+    this.name = 'SignIn';
   }
 
 }
