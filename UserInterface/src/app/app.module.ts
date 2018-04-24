@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {CategoriesComponent} from './components/home/categories/categories.component';
 import { CarouselComponent } from './components/home/carousel/carousel.component';
 import { EventsComponent } from './components/home/events/events.component';
+import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EventsComponent } from './components/home/events/events.component';
     NavigationBarComponent,
     FooterComponent,
     CarouselComponent,
-    EventsComponent
+    EventsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule
