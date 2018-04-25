@@ -62,7 +62,7 @@ router.post('/signin', function(req, res, next) {
                 error: {message: 'User not found'}
             });
         }
-        if( bcrypt.compareSync(req.body.password, user.password)){
+        if( !bcrypt.compareSync(req.body.password, user.password)){
             return res.status(401).json({
                 title: 'login failed',
                 error: {message: 'Invalid login credentials'}
