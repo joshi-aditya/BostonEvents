@@ -1,0 +1,28 @@
+<h3>Register</h3>
+<hr/>
+<form [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" placeholder="First name" formControlName="firstName" id="firstName">
+      </div>
+      <div class="col">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" id="lastName">
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="signupInputEmail">Email address</label>
+    <input type="email" class="form-control" id="signupInputEmail" aria-describedby="emailHelp" placeholder="Enter email" formControlName="emailRegister">
+    <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="signupInputPassword">Password</label>
+    <input type="password" class="form-control" id="signupInputPassword" placeholder="Password" formControlName="passwordRegister">
+  </div>
+  <a>
+    <button type="submit" class="btn btn-primary btn-lg btn-block my-4" [disabled]="!RegisterForm.valid">Register</button>
+  </a>
+</form>
