@@ -1,13 +1,14 @@
 class Events {
   constructor(
-    private id: number,
-    private description: string,
-    private imageSrc: string,
-    private category: string,
-    private streetAddress: string,
-    private location: string,
-    private date: Date,
-    private cost: number
+    public id: number,
+    public name: string,
+    public description: string,
+    public imageLink: string,
+    public category: string,
+    public streetAddress: string,
+    public location: string,
+    public date: Date,
+    public cost: number
   ) {
   }
 }

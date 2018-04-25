@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserAccountService } from './services/userAccount.service';
 import { DetailsComponent } from './components/home/events/details/details.component';
+import { BrowseEventsComponent } from './components/browse-events/browse-events.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DetailsComponent } from './components/home/events/details/details.compo
     UserComponent,
     LoginComponent,
     RegisterComponent,
-    DetailsComponent
+    DetailsComponent,
+    BrowseEventsComponent
   ],
   imports: [
     BrowserModule,
