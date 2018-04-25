@@ -1,15 +1,31 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-let userModel = require('./models/user');
+'use strict';
 
-var app = express();
-mongoose.connect('mongodb://localhost:27017/eventBrite');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+const mongoose = require('mongoose');
+const app = express();
+
+// Mongoose parameters
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/eventBrite', {useMongoClient: true});
+
+// Initialize Models
+
+const userModel = require('./models/user'),
+      eventsModel = require('./models/events');
+
+// Initialize Routes
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -25,6 +41,9 @@ app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
   next(createError(404));
 });
 
