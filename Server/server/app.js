@@ -8,14 +8,14 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+const eventsRouter = require('./routes/events');
 const mongoose = require('mongoose');
 const app = express();
 
 // Mongoose parameters
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/eventBrite', {useMongoClient: true});
+mongoose.connect('mongodb://localhost:27017/eventBrite');
 
 // Initialize Models
 
@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/events', eventsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
