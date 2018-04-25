@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 p-0">
         <nav class="navbar navbar-expand-md navbar-light p-0">
-          <a class="navbar-brand cursor-pointer ml-4">NameOfSite</a>
+          <a class="navbar-brand cursor-pointer ml-4" routerLink="home">NameOfSite</a>
 
           <div class="ml-auto">
             <ul class="navbar-nav">
@@ -15,16 +15,16 @@
                   {{this.name}}
                 </a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/">Action</a>
-                  <a class="dropdown-item" href="/">Another action</a>
+                  <a class="dropdown-item" href="/">Tickets</a>
+                  <a class="dropdown-item" href="/">Saved</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item md-hide" href="/">Browse Events</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/">Something else here</a>
+                  <a class="dropdown-item" href="/">Log out</a>
                 </div>
               </li>
               <li class="nav-item leftside-border">
-                <a class="nav-link p-4" href="/">SignIn</a>
+                <a class="nav-link p-4" routerLink="/user/login">SignIn</a>
               </li>
             </ul>
           </div>

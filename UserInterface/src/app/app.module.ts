@@ -10,6 +10,13 @@ import {CategoriesComponent} from './components/home/categories/categories.compo
 import { CarouselComponent } from './components/home/carousel/carousel.component';
 import { EventsComponent } from './components/home/events/events.component';
 import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { UserAccountService } from './services/userAccount.service';
+import { DetailsComponent } from './components/home/events/details/details.component';
 
 
 @NgModule({
@@ -21,12 +28,19 @@ import { UserComponent } from './components/user/user.component';
     FooterComponent,
     CarouselComponent,
     EventsComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    RegisterComponent,
+    DetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [UserAccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
