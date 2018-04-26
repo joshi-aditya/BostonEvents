@@ -3,8 +3,10 @@ import { Events } from './events';
 
 export class Booking {
   constructor(
-    private event: Events,
-    private user: UserAccount,
-    private numberOfTickets: number
+    public event: Events,
+    public user: UserAccount,
+    public numberOfTickets: number,
+    public amount: any,
+    public bookingDate: Date
   ) {}
 }

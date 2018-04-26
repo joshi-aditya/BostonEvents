@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Booking } from '../../../../models/Booking';
 
 @Component({
   selector: 'app-booking-history',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingHistoryComponent implements OnInit {
 
+  @Input() booking: Booking;
+  newDate: Date;
+  bookingDate: Date;
   constructor() { }
 
   ngOnInit() {
+    this.newDate = new Date(this.booking.event.date);
+    this.bookingDate = new Date(this.booking.bookingDate);
   }
 
 }

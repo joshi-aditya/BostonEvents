@@ -1,3 +1,7 @@
-<p>
-  booking-history works!
-</p>
+<div class="col-12">
+  <img src="{{this.booking.event.imageLink}}" alt="ImageFile">
+  <p>{{this.newDate.toDateString() | uppercase}}</p>
+  <p>{{this.booking.event.name}}</p>
+  <p><span *ngIf="isPaid">$</span>{{this.booking.amount}}
+    order #{{this.booking.event._id.slice(6)}} of {{this.booking.numberOfTickets}} Ticket on {{this.bookingDate | date: "MMMM d, y"}}</p>
+</div>
