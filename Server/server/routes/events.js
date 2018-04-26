@@ -4,7 +4,7 @@ const Events = require('../models/events');
 
 /* Get events. */
 router.get('/', function (req, res, next) {
-  Events.find()
+  Events.find({date : {'$gte': new Date()}}).sort({date: 1})
     .exec(function (err, events) {
       if (err) {
         return res.status(500).json({
