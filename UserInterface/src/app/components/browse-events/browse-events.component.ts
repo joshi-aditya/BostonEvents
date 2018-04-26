@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../../services/events.service';
 import { Events } from '../../models/events';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-browse-events',
@@ -13,23 +14,35 @@ export class BrowseEventsComponent implements OnInit {
   endReached: boolean;
   start: number;
   limit: number;
-  constructor(private eventsService: EventsService) {
+  prefix: string;
+
+  constructor(
+    private eventsService: EventsService,
+    private route: ActivatedRoute
+  ) {
     this.start = 0;
     this.limit = 5;
   }
 
   ngOnInit() {
-
-    window.addEventListener('scroll', this.scroll, true);
-    this.getEvents(this.start, this.limit);
+    if (!this.route.params['_value'].category) {
+      window.addEventListener('scroll', this.scroll, true);
+      this.getEvents(this.start, this.limit);
+    } else {
+      this.eventsService.getEventsByCategory(this.route.params['_value'].category)
+        .subscribe(data => {
+          this.events = data;
+          const firstChar = this.route.params['_value'].category.charAt(0).toUpperCase();
+          const restoftheWord = this.route.params['_value'].category.slice(1).toLowerCase();
+          this.prefix = `${firstChar + restoftheWord} realted `;
+        }, error => console.error(error));
+    }
   }
 
   scroll = (): void => {
-
     if ((window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 75)) {
       if (!this.endReached) {
         this.start += this.limit;
-
         this.getEvents(this.start, this.limit);
       }
     }
@@ -38,11 +51,9 @@ export class BrowseEventsComponent implements OnInit {
   getEvents(start: number, limit: number) {
     this.eventsService.getEvents(start, limit)
       .subscribe(data => {
-
         data.forEach(element => {
           this.events.push(element);
         });
-
         if (!data) {
           this.endReached = true;
         } else if (!Array.isArray(data)) {

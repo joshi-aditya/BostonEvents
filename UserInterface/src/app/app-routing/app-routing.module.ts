@@ -34,7 +34,11 @@ const appRoutes: Routes = [
     path: 'events',
     children: [
       {
-        path: ':id',
+        path: ':category',
+        component: BrowseEventsComponent
+      },
+      {
+        path: ':category/:id',
         component: EventDetailsComponent
       },
       {

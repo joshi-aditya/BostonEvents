@@ -1,9 +1,10 @@
 <div class="box my-5">
-  <a class="cursor-pointer h-100" [routerLink]="['/events', evt._id]">
+  <a class="cursor-pointer h-100" [routerLink]="['/events', evt.category, evt._id]">
     <img [src]="evt.imageLink" alt="Improve your internet connection">
     <span class="top-right">{{this.cost}}</span>
     <div class="inner-box">
       <p class="my-3 px-3 text-center first-p">{{this.newDate.toDateString()}}</p>
+      <hr />
       <p class="my-2 px-3 second-p">{{evt.name}}</p>
       <p class="my-2 px-3 third-p">{{evt.streetAddress+', ' +evt.location}}</p>
     </div>

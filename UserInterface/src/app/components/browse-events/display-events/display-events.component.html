@@ -1,15 +1,15 @@
 <div class="box my-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <img [src]="evt.imageLink" alt="Improve your internet connection">
-        <span>{{this.cost}}</span>
+  <a class="cursor-pointer" [routerLink]="['/events', evt.category, evt._id]">
+    <div class="row h-100">
+      <div class="col-5 col-md-4 d-flex justify-content-end flex-column">
+        <img [src]="evt.imageLink" alt="Improve your internet connection" class="img-fluid">
+        <p class="mb-0 sp text-center">{{this.cost}}</p>
       </div>
-      <div class="col-md-8">
-        <p class="my-3 px-3 text-center first-p">{{this.newDate.toDateString()}}</p>
+      <div class="col-7 col-md-8">
+        <p class="my-3 px-3 first-p">{{this.newDate.toDateString()}}</p>
         <p class="my-2 px-3 second-p">{{evt.name}}</p>
         <p class="my-2 px-3 third-p">{{evt.streetAddress+', ' +evt.location}}</p>
       </div>
     </div>
-  </div>
+  </a>
 </div>

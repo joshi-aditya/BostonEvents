@@ -41,9 +41,10 @@ export class EventDetailsComponent implements OnInit {
     await this.allEvnts.forEach(evt => {
       if (evt._id === this.evtId) {
         this.evtInfo = evt;
-        this.cost = evt.cost;
-        if (this.cost === 0) {
+        if (this.evtInfo.cost === 0) {
           this.cost = 'Free';
+        } else {
+          this.cost = `$${this.evtInfo.cost}`;
         }
         this.newDate = new Date(evt.date);
       }

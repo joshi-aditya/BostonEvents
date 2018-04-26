@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
 
   findCost() {
     if (this.evt.cost) {
-      this.cost = this.evt.cost;
+      this.cost = `$${this.evt.cost}`;
     } else {
       this.cost = 'Free';
     }

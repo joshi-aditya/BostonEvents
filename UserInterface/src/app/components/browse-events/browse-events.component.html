@@ -1,7 +1,11 @@
 <div class="bg-color myh">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-10" *ngFor="let event of events">
+  <div class="container pb-5">
+    <div class="row mb-5">
+      <div class="col-md-10 offset-md-1 col-12 pt-5">
+        <h2 class="text-dark text-center text-shadow">{{this.prefix}}Events for you</h2>
+        <hr />
+      </div>
+      <div class="col-md-10 col-12 offset-md-1" *ngFor="let event of events">
         <app-display-events [evt]="event"></app-display-events>
       </div>
     </div>

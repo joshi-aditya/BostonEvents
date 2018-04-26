@@ -9,7 +9,18 @@ export class EventsService {
   events: Events[];
 
   url = 'http://localhost:3000/events';
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
+
+  getEventsByCategory(category: string) {
+    return this.http.get<EventResponse>(`${this.url}/${category}`)
+      .pipe(map(data => {
+        return data.obj.slice();
+      }), catchError(
+        error => _throw(error.error)
+      ));
+  }
 
   getEventsByDate() {
     return this.http.get<EventResponse>(this.url)
