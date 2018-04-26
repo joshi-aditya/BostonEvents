@@ -21,6 +21,7 @@ import { BrowseEventsComponent } from './components/browse-events/browse-events.
 import { DisplayEventsComponent } from './components/browse-events/display-events/display-events.component';
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { TicketComponent } from './components/user/ticket/ticket.component';
+import { EventsService } from './services/events.service';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { TicketComponent } from './components/user/ticket/ticket.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UserAccountService],
+  providers: [UserAccountService, EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

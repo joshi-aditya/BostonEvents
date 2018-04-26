@@ -7,7 +7,6 @@ import { _throw } from 'rxjs/observable/throw';
 @Injectable()
 export class UserAccountService {
   user: UserAccount;
-  events: Events[];
 
   constructor(
     private http: HttpClient
