@@ -3,16 +3,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongooseUniqueValidator = require('mongoose-unique-validator');
-var User = require('./user');
-var Events = require('./events');
+const User = require('./user');
+const Events = require('./events');
 
 const bookingSchema = new Schema({
   event: { 
-      type: Schema.Types.ObjectId, 
+      type: Schema.Types.Object,
       ref: 'Events' 
     },
   user: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.Object,
     ref: 'User'
   },
   numberOfTickets: {

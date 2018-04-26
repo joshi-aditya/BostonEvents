@@ -15,7 +15,6 @@ export class EventsService {
     return this.http.get<EventResponse>(this.url)
       .pipe(map(data => {
         this.events = data.obj.slice();
-        console.log('Service', this.events);
         return this.events;
       }), catchError(
         error => _throw(error.error)
