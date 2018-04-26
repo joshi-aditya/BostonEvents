@@ -1,15 +1,49 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Events } from '../../models/events';
+import { EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
-  styleUrls: ['./event-details.component.scss']
+  styleUrls: [ './event-details.component.scss' ]
 })
 export class EventDetailsComponent implements OnInit {
+  allEvnts: Array<Events>;
+  evtInfo: Events;
+  evtId: string;
+  newDate: Date;
+  cost: any;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private eventService: EventsService
+  ) {
   }
 
+  ngOnInit() {
+    this.eventService.getEventsByDate()
+      .subscribe(
+        data => {
+          this.allEvnts = data.slice();
+          this.getEvntDetail();
+        },
+        error1 => console.error(error1)
+      );
+  }
+
+  async getEvntDetail() {
+    this.evtId = this.route.params[ '_value' ].id;
+    await this.allEvnts.forEach(evt => {
+      if (evt._id === this.evtId) {
+        this.evtInfo = evt;
+        this.cost = evt.cost;
+        if (this.cost === 0) {
+          this.cost = 'Free';
+        }
+        this.newDate = new Date(evt.date);
+        console.log(this.evtInfo);
+      }
+    });
+  }
 }

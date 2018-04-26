@@ -1,19 +1,40 @@
-<div class="container">
-  <div class="row no-gutters">
-    <div class="col-12">
-      <div class="col-8">
-        <img src="" alt="Image">
+<div class="bg-color">
+  <div class="container pt-5">
+    <div class="box-shadow">
+      <div class="row no-gutters bg-white border-bottom">
+        <div class="col-8">
+          <img src="{{this.evtInfo?.imageLink}}" alt="Image" class="w-100">
+        </div>
+        <div class="col-4 myBg-color border-bottom">
+          <div class="ml-4 h-100">
+            <p class="mb-0 pt-3 font-small">{{this.newDate?.toDateString() | date: "MMM" | uppercase}}</p>
+            <p class="font-large">{{this.newDate?.toDateString() | date: "dd"}}</p>
+            <h3 class="text-dark">{{this.evtInfo?.name}}</h3>
+            <p class="position-absolute" style="bottom: 0">{{this.cost}}</p>
+          </div>
+        </div>
       </div>
-      <div class="col-4">details</div>
-    </div>
-    <div class="row w-100">
-      <div class="col-8">
-        <h3>Description</h3>
-        <p>dex</p>
+      <div class="row no-gutters bg-white">
+        <div class="col-4 offset-8">
+          <div class="col-12">
+            <button class="btn btn-success my-3 w-100">Register</button>
+          </div>
+        </div>
       </div>
-      <div class="col-4">
-        <p>Date and Time</p>
-        <p>Location</p>
+      <div class="row w-100 no-gutters bg-white border py-5 mb-5">
+        <div class="col-6 offset-1">
+          <h5 class="font-large">Description</h5>
+          <p class="font-small">{{this.evtInfo?.description}}</p>
+        </div>
+        <div class="col-4 offset-1">
+          <p class="font-small text-dark text-uppercase mb-1">Date</p>
+          <p class="font-small">{{this.newDate?.toDateString()}}</p>
+          <div class="mt-5">
+            <p class="font-small text-dark text-uppercase mb-1">Location</p>
+            <p class="font-small mb-0">{{this.evtInfo?.streetAddress}}</p>
+            <p class="font-small">{{this.evtInfo?.location}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

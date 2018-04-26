@@ -22,6 +22,7 @@ import { DisplayEventsComponent } from './components/browse-events/display-event
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { TicketComponent } from './components/user/ticket/ticket.component';
 import { EventsService } from './services/events.service';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { EventsService } from './services/events.service';
     BrowseEventsComponent,
     DisplayEventsComponent,
     EventDetailsComponent,
-    TicketComponent
+    TicketComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

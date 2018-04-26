@@ -5,6 +5,7 @@ import { UserComponent } from '../components/user/user.component';
 import { BrowseEventsComponent } from '../components/browse-events/browse-events.component';
 import { EventDetailsComponent } from '../components/event-details/event-details.component';
 import { TicketComponent } from '../components/user/ticket/ticket.component';
+import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -31,7 +32,17 @@ const appRoutes: Routes = [
   },
   {
     path: 'events',
-    component: EventDetailsComponent
+    children: [
+      {
+        path: ':id',
+        component: EventDetailsComponent
+      },
+      {
+        path: '',
+        component: PageNotFoundComponent
+      }
+    ]
+
   },
   {
     path: 'bookings',

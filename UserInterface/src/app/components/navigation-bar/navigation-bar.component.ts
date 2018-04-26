@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAccountService } from '../../services/userAccount.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -10,7 +11,8 @@ export class NavigationBarComponent implements OnInit {
 
   userName: string;
   constructor(
-    private userAccountService: UserAccountService
+    private userAccountService: UserAccountService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class NavigationBarComponent implements OnInit {
 
   onLogout() {
     this.userAccountService.logOut();
+    this.router.navigate(['/home']);
   }
 
 }
