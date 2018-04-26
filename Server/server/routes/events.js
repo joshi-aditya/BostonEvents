@@ -19,6 +19,26 @@ router.get('/', function (req, res, next) {
     });
 });
 
+/** Get events by category */
+router.get('/:category', function(req, res, next){
+  
+  const category = req.params.category;
+  
+  Events.find({category: category, date : {'$gte': new Date()}}).sort({date: 1})
+    .exec(function (err, events) {
+      if (err) {
+        return res.status(500).json({
+          title : 'An error occurred',
+          error : err
+        });
+      }
+      res.status(200).json({
+        message : 'Success',
+        obj : events
+      });
+    });
+});
+
 /* Creating events */
 router.post('/', function (req, res, next) {
 
