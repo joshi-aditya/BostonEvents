@@ -21,7 +21,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  booking: {
+  bookings: {
     type: Schema.Types.Object,
   }
 }, {
