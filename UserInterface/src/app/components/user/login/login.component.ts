@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserAccount } from '../../../models/userAccount';
 import { UserAccountService } from '../../../services/userAccount.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
 
   constructor(
-    private userAccountService: UserAccountService
+    private userAccountService: UserAccountService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', JSON.stringify(data.user));
           this.userAccountService.user = JSON.parse(localStorage.getItem('user'));
-          window.location.replace('/home');
+          this.router.navigateByUrl('/home');
         },
         error => console.error(error)
       );

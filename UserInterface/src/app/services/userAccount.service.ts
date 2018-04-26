@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { UserAccount } from '../models/userAccount';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { catchError, map } from 'rxjs/operators';
+import { _throw } from 'rxjs/observable/throw';
 
 @Injectable()
 export class UserAccountService {
   user: UserAccount;
   events: Events[];
+  userId: string;
 
   constructor(
     private http: HttpClient
@@ -23,7 +24,7 @@ export class UserAccountService {
       .pipe(map(result => {
         console.log(result);
         return user;
-      }), catchError(error => Observable.throw(error.error)));
+      }), catchError(error => _throw(error.error)));
   }
 
   signIn(user: UserAccount) {
@@ -31,7 +32,19 @@ export class UserAccountService {
     const signin = '/signin';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(`${this.url}${signin}`, body, {headers: headers})
-      .pipe(catchError(error => Observable.throw(error.error)));
+      .pipe(catchError(error => _throw(error.error)));
+  }
+
+  getCurrentUser() {
+    const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+    return this.http.get<UserResponse>(`${this.url}/getUser` + token)
+      .pipe(map(data => {
+        localStorage.setItem('user', JSON.stringify(data.obj));
+        return data.obj;
+      }), catchError(error => {
+        console.error(error.error);
+        return _throw(error.error);
+      }));
   }
 
   logOut() {
@@ -42,4 +55,10 @@ export class UserAccountService {
     return localStorage.getItem('token') !== null;
   }
 
+}
+
+interface UserResponse {
+  message: string;
+  obj: UserAccount;
+  userId: string;
 }
