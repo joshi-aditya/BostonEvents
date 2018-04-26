@@ -1,6 +1,15 @@
-<img src="" alt="image">
-<p>price</p>
-<p>Date</p>
-<p>Title</p>
-<p>Address</p>
-
+<div class="box my-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="evt.imageLink" alt="Improve your internet connection">
+        <span>{{this.cost}}</span>
+      </div>
+      <div class="col-md-8">
+        <p class="my-3 px-3 text-center first-p">{{this.newDate.toDateString()}}</p>
+        <p class="my-2 px-3 second-p">{{evt.name}}</p>
+        <p class="my-2 px-3 third-p">{{evt.streetAddress+', ' +evt.location}}</p>
+      </div>
+    </div>
+  </div>
+</div>
