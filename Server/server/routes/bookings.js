@@ -3,8 +3,11 @@ const router = express.Router();
 const Bookings = require('../models/booking');
 
 /* Get bookings. */
-router.get('/', function (req, res, next) {
-  Bookings.find()
+router.get('/:userId', function (req, res, next) {
+
+  const userId = req.params.userId;
+
+  Bookings.find({ 'user._id' : userId})
     .exec(function (err, bookings) {
       if (err) {
         return res.status(500).json({
