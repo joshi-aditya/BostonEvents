@@ -67,4 +67,25 @@ router.post('/', function (req, res, next) {
   });
 });
 
+/** for lazy loading */
+router.get('/start/:skip/limit/:limit', function (req, res, next) {
+  
+  const skip = Number(req.params.skip);
+  const limit = Number(req.params.limit);
+  
+  Events.find({date : {'$gte': new Date()}}).sort({date: 1}).skip(skip).limit(limit)
+    .exec(function (err, events) {
+      if (err) {
+        return res.status(500).json({
+          title : 'An error occurred',
+          error : err
+        });
+      }
+      res.status(200).json({
+        message : 'Success',
+        obj : events
+      });
+    });
+});
+
 module.exports = router;

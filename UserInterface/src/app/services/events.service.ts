@@ -20,6 +20,18 @@ export class EventsService {
         error => _throw(error.error)
       ));
   }
+
+  getEvents(skip: number, limit: number) {
+
+    const paramaters = `/start/${skip}/limit/${limit}`;
+    return this.http.get<EventResponse>(this.url + paramaters)
+      .pipe(map(data => {
+        this.events = data.obj.slice();
+        return this.events;
+      }), catchError(
+        error => _throw(error.error)
+      ));
+  }
 }
 
 interface EventResponse {
