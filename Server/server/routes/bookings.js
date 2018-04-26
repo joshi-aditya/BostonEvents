@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Bookings = require('../models/booking');
+const User = require('../models/user');
 
 /* Get bookings. */
 router.get('/byUser/:userId', function (req, res, next) {
@@ -59,6 +60,20 @@ router.post('/', function (req, res, next) {
         error : err
       });
     }
+
+    User.findById(decoded.user._id, function (err, user) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(201).json({
+        message: 'Current User',
+        obj: user,
+        userId: user._id
+      });
+    });
     res.status(201).json({
       title : 'Booking done',
       obj : result
