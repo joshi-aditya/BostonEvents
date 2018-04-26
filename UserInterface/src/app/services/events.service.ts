@@ -42,7 +42,6 @@ export class EventsService {
           data.obj.imageLink, data.obj.category,
           data.obj.streetAddress, data.obj.location,
           data.obj.date, data.obj.cost);
-        console.log(evt);
         return evt;
       }), catchError(
         error => error

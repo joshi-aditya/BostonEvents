@@ -10,7 +10,7 @@ import { Events } from '../../../models/events';
 })
 export class ReviewPaymentComponent implements OnInit {
 
-  evt: Events;
+  evt: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
