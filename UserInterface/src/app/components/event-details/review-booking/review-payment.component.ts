@@ -44,12 +44,14 @@ export class ReviewPaymentComponent implements OnInit {
   }
 
   findCost(quantity) {
-    this.qty = parseInt(quantity, 10);
-    this.totalCost = parseInt(this.cost.slice(), 10) * this.qty;
-    if (this.totalCost === 0) {
-      this.zero = true;
-    } else {
-      this.zero = false;
+    if (this.cost !== 'Free') {
+      this.qty = parseInt(quantity, 10);
+      this.totalCost = parseInt(this.cost.slice(), 10) * this.qty;
+      if (this.totalCost === 0) {
+        this.zero = true;
+      } else {
+        this.zero = false;
+      }
     }
   }
 
