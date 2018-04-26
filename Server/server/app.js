@@ -9,16 +9,15 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
+const bookingsRouter = require('./routes/bookings');
 const mongoose = require('mongoose');
 const app = express();
 
 // Mongoose parameters
-
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/eventBrite');
 
 // Initialize Models
-
 const userModel = require('./models/user'),
       eventsModel = require('./models/events');
 
@@ -44,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/events', eventsRouter);
+app.use('/bookings', bookingsRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
