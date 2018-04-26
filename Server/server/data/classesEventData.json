@@ -1,0 +1,22 @@
+[
+  {
+    "category": "classes",
+    "name" : "Cambridge MA TechD Workshop: IBM Cognos Analytics & Big Data Workshop",
+    "description": "TechD and IBM welcome you to join our complementary IBM Analytics workshop in Cambridge.\nDuring the workshop we will cover 2 key industry use-cases where TechD is actively engaged with clients, leveraging IBM Analytics and Big Data solutions, to deliver insights and modernize their approach to patient care like never before.\nBig Data Client Case Study – Learn how TechD has helped a leading pediatric hospital improve patient outcomes utilizing IBM Big Data solutions for warehousing, Hadoop, and streaming analytics.\nGoverned & Secure BI Platform – TechD has implemented IBM Cognos Analytics in many hospitals throughout the US, delivering a secure, governed and modern reporting solution to help hospitals streamline operations, gain new insights, and improve communications & collaboration across the enterprise. As part of the conversation, you will get to see a live demo of the latest release of IBM Cognos Analytics, R10.\nQuestions or Concerns? Contact: Brad Peterson\n202-556-5323\nbpeterson@tech-dynamics.com",
+    "imageLink": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F43735422%2F202839188288%2F1%2Foriginal.jpg?w=800&auto=compress&rect=27%2C0%2C674%2C337&s=8c8d3f0c8a2d437954f458a4eb8983a0",
+    "streetAddress": "IBM Office: 75 Binney St\n75 Binney Street",
+    "location": "Cambridge, MA 02142",
+    "date": "05/07/2018",
+    "cost": 0
+  },
+  {
+    "category": "classes",
+    "name" : "ACCELERATE | Free Business & Tech Event",
+    "description": "Join the upcoming “ACCELERATE” event - premier gathering for business and tech leaders in Boston on May 3-4! Gain valuable experience from world-class influencers and experts on how to accelerate business growth and innovate faster.\nHot topics to be covered:\nBEST PRACTICES IN ACCELERATING BUSINESS GROWTH. Hear the enlightening and inspiring speeches from the world-class thought leaders on how to accelerate organizational alignment, business transformation and growth.\nREAL-LIFE SUCCESS STORIES OF BUSINESS TRANSFORMATION. Learn how leading organizations transform and innovate faster. Hear the success stories on how intelligent and agile technology helps businesses align data, processes, and teams enabling them to better connect with digital native customers and rapidly adapt.\nINSIGHTFUL “HOW-TO” WORKSHOPS ON PROCESS MODELING WITH BPMN. Join the interactive workshops on how to model the most effective business processes with BPMN and build effective operations at your organization.",
+    "imageLink": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F43772138%2F184134158253%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C0%2C1024%2C512&s=be36d9e14767d6b8cbf6dfe3d0730c66",
+    "streetAddress": "Conference Center on Newbury Street\n565 Newbury Street",
+    "location": "Boston, MA 02210",
+    "date": "05/03/2018",
+    "cost": 0
+  }
+]

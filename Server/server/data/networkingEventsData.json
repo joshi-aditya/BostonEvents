@@ -1,0 +1,42 @@
+[
+  {
+    "category": "networking",
+    "name" : "Zero Trust Security: A Roundtable Dinner Discussion with Akamai",
+    "description": "Come join us for dinner with Akamai CTO Charlie Gero!\nPlease be our guest for dinner and a roundtable discussion led by our own Charlie Gero. We invite you to bring your knowledge about enterprise security and architecture as we share Akamai's own motivation for adopting a zero trust security philosophy, and discuss industry trends that have caused IT teams to rethink their enterprise strategy.\nRSVP today in order to secure your seat, as there is limited availability. We have the tab, giveaways, and starting topic, but we need you to complete the evening by collaborating with your peer industry leaders!\nSchedule:\n4:30 PM - Drinks at the bar\n6:00 PM - Dinner seating at Grill 23\n6:05 PM – Short introduction about Zero Trust Security models\n6:15 PM - Roundtable discussion begins\n8:00 PM - Dinner concludes",
+    "imageLink": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F42936679%2F243830907692%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C0%2C2160%2C1080&s=657be5dc6afe9ed08f172f8bdf7450fa",
+    "streetAddress": "Grill 23 & Bar\n161 Berkeley Street",
+    "location": "Boston, MA 02116",
+    "date": "06/19/2018",
+    "cost": 0
+  },
+  {
+    "category": "networking",
+    "name" : "Serverless Boston @ AWS",
+    "description": "Thank you AWS for hosting and pizza/drinks!\nAWS security requires a valid photo identification and email address prior to entry and requires your full name.\n\n6:00pm-6:30pm Food/Drink/Networking\n6:30pm-7:00pm Welcome, Serverless Architecture Overview\nWayne Scarano, sga.com, Cloud/Cybersecurity Architect\n7:00pm-8:00pm - Serverless Applications with AWS SAM\n\nChris Munns, AWS Senior Developer Advocate - Serverless\nAWS Serverless Application Models (AWS SAM) is a tool for developing, deploying, and managing your serverless applications on AWS. We’ll get deep in to best practices and tricks for using SAM at scale, including how to make the most of the dynamic template capabilities of SAM, how to use advanced features such as deployment preferences and policy templates, and how to debug serverless applications with SAM Local. We’ll also explore the newly released open source SAM translator and explain how SAM works beneath the hood.\n8:00pm - 8:30pm - Networking",
+    "imageLink": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F43532286%2F14970671235%2F1%2Foriginal.jpg?w=800&auto=compress&rect=51%2C0%2C598%2C299&s=053b73d034bfe686948a2ee782278519",
+    "streetAddress": "AWS\n27 Melcher Street",
+    "location": "Boston, MA 02210",
+    "date": "05/24/2018",
+    "cost": 0
+  },
+  {
+    "category": "networking",
+    "name" : "Accelerate Delivery Boston",
+    "description": "Join Herzum’s team of Agile and DevOps experts for an interactive discussion on innovative, collaborative, and agile ways to automate software delivery. Fast-and-Frequent Releases don’t come without automation and we will share our practical experience and how our clients are succeeding with DevSecOps to streamline software releases and break down the barriers between application development and operations - improving traceability, transparency, simplicity and supporting the cultural transformation required to build trust between business stakeholders and cross-functional delivery teams.",
+    "imageLink": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F43422821%2F136923487802%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C0%2C2160%2C1080&s=5916e13c25fdaaa8b2f0b65808289ac6",
+    "streetAddress": "Maggiano's Park Square Medici Room\n4 Columbus Ave",
+    "location": "Boston, MA 02116",
+    "date": "05/16/2018",
+    "cost": 0
+  },
+  {
+    "category": "networking",
+    "name" : "BostInno's State of Innovation: Deep Tech",
+    "description": "“Deep Tech” startups are at the forefront of developing technologies that address scientific and technological frontiers in industries as diverse as agriculture, healthcare and energy—technologies that in many cases address the biggest societal and environmental challenges we face today and shape the way we’ll solve our most pressing global issues. These young companies, however, face a unique set of challenges as an innovation ecosystem has typically not yet taken root around them.Panel to be announced shortly.",
+    "imageLink": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F43536383%2F237856286062%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C94%2C2120%2C1060&s=361d6b7eae4539f67d44712794fac05c",
+    "streetAddress": "Analog Garage\n125 Summer Street\nFloor 21",
+    "location": "Boston, Ma 02110",
+    "date": "06/20/2018",
+    "cost": 25
+  }
+]

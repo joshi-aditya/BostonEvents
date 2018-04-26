@@ -18,6 +18,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserAccountService } from './services/userAccount.service';
 import { DetailsComponent } from './components/home/events/details/details.component';
 import { BrowseEventsComponent } from './components/browse-events/browse-events.component';
+import { DisplayEventsComponent } from './components/browse-events/display-events/display-events.component';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
+import { TicketComponent } from './components/user/ticket/ticket.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { BrowseEventsComponent } from './components/browse-events/browse-events.
     LoginComponent,
     RegisterComponent,
     DetailsComponent,
-    BrowseEventsComponent
+    BrowseEventsComponent,
+    DisplayEventsComponent,
+    EventDetailsComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
