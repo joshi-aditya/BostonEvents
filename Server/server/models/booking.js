@@ -16,11 +16,10 @@ const bookingSchema = new Schema({
     ref: 'User'
   },
   numberOfTickets: {
-    type: Number,
-    required: true
+    type: Number
   },
   amount: {
-    type: Number,
+    type: String,
     required: true
   },
   bookingDate: {

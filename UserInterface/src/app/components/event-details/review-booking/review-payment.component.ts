@@ -5,6 +5,7 @@ import { Booking } from '../../../models/Booking';
 import { UserAccountService } from '../../../services/userAccount.service';
 import { UserAccount } from '../../../models/userAccount';
 import { BookingService } from '../../../services/booking.service';
+import { Events } from '../../../models/events';
 
 @Component({
   selector: 'app-review-payment',
@@ -13,10 +14,10 @@ import { BookingService } from '../../../services/booking.service';
 })
 export class ReviewPaymentComponent implements OnInit {
 
-  evt: any;
+  evt: Events;
   cost: string;
   totalCost: any;
-  qty: number;
+  numberOfTickets: number;
   zero: boolean;
 
   constructor(
@@ -30,10 +31,14 @@ export class ReviewPaymentComponent implements OnInit {
 
   ngOnInit() {
     if (this.route.params[ '_value' ].eventId) {
-      this.eventsService.getEventsByID(this.route.params[ '_value' ].eventId)
+      this.eventsService.getEventsByDate()
         .subscribe(data => {
           console.log(data);
-          this.evt = data;
+          data.forEach(e => {
+            if (e._id === this.route.params['_value'].eventId) {
+              this.evt = e;
+            }
+          });
           this.cost = this.evt.cost !== 0 ? `${this.evt.cost}` : 'Free';
           if (this.cost === 'Free') {
             this.totalCost = 'Free';
@@ -51,8 +56,8 @@ export class ReviewPaymentComponent implements OnInit {
 
   findCost(quantity) {
     if (this.cost !== 'Free') {
-      this.qty = parseInt(quantity, 10);
-      this.totalCost = parseInt(this.cost.slice(), 10) * this.qty;
+      this.numberOfTickets = parseInt(quantity, 10);
+      this.totalCost = parseInt(this.cost.slice(), 10) * this.numberOfTickets;
       if (this.totalCost === 0) {
         this.zero = true;
       } else {
@@ -69,7 +74,7 @@ export class ReviewPaymentComponent implements OnInit {
         const booking = new Booking(
           this.evt,
           user,
-          this.qty,
+          this.numberOfTickets,
           this.totalCost,
           new Date()
         );
