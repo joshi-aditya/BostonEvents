@@ -15,7 +15,7 @@ export class BookingService {
   url = 'http://localhost:3000/bookings';
 
   getBookingByUserId(userId: string) {
-    return this.http.get<BookingResponse>(`${this.url}/byUser/${userId}`)
+    return this.http.get<BookingsResponse>(`${this.url}/byUser/${userId}`)
       .pipe(map(data => {
           console.log(data.obj);
           return data.obj;
@@ -46,4 +46,9 @@ export class BookingService {
 interface BookingResponse {
   message: string;
   obj: Booking;
+}
+
+interface BookingsResponse {
+  message: string;
+  obj: Booking[];
 }

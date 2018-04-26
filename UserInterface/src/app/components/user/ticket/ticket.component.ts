@@ -28,7 +28,7 @@ export class TicketComponent implements OnInit {
         this.bookingService.getBookingByUserId(id)
           .subscribe(result => {
             console.log(result);
-            this.bookings = result;
+            this.bookings = result.reverse();
             this.hasBooking = true;
           });
       }, error => console.error(error));

@@ -26,19 +26,19 @@
                     </div>
                   </div>
                 </td>
-                <td data-th="Price">{{this.cost}}</td>
+                <td data-th="Price"><span *ngIf="this.zero">$</span>{{this.cost}}</td>
                 <td data-th="Quantity">
                   <input type="number" min="0" max="10"
                          class="form-control text-center product-qty"
                          style="width:60px;" value="1" (ngModelChange)="this.findCost($event)" [ngModel]="this.qty">
                 </td>
-                <td data-th="Subtotal" class="text-center">${{this.totalCost}}</td>
+                <td data-th="Subtotal" class="text-center"><span *ngIf="this.zero">$</span>{{this.totalCost}}</td>
               </tr>
               </tbody>
               <tfoot>
               <tr class="w-100">
                 <td colspan="3" class="hidden-xs"></td>
-                <td class="hidden-xs text-center"><strong>Total: ${{this.totalCost}}</strong></td>
+                <td class="hidden-xs text-center"><strong>Total: <span *ngIf="this.zero">$</span>{{this.totalCost}}</strong></td>
               </tr>
               </tfoot>
             </table>

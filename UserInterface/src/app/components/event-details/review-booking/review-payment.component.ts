@@ -79,7 +79,10 @@ export class ReviewPaymentComponent implements OnInit {
           new Date()
         );
         this.bookingService.updateBooking(booking)
-          .subscribe(result => console.log(result));
+          .subscribe(result => {
+            console.log(result);
+            this.router.navigateByUrl('/home');
+          });
       });
   }
 
