@@ -27,3 +27,17 @@ body {
 .font-large {
   font-size: large;
 }
+
+.padding-15 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.46);
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.46);
+}
+.myBg-color {
+  background-color: #FCFCFC;
+}

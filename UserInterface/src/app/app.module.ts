@@ -23,6 +23,7 @@ import { EventDetailsComponent } from './components/event-details/event-details.
 import { TicketComponent } from './components/user/ticket/ticket.component';
 import { EventsService } from './services/events.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { BookingHistoryComponent } from './components/user/ticket/booking-history/booking-history.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     DisplayEventsComponent,
     EventDetailsComponent,
     TicketComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BookingHistoryComponent
   ],
   imports: [
     BrowserModule,

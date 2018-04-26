@@ -20,7 +20,6 @@ export class EventsComponent implements OnInit {
     this.eventsService.getEventsByDate()
       .subscribe(data => {
         this.events = data.slice(0, 6);
-        console.log(this.events);
       }, error1 => console.error(error1));
   }
 

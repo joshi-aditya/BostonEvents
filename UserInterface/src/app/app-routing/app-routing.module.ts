@@ -39,7 +39,8 @@ const appRoutes: Routes = [
       },
       {
         path: '',
-        component: PageNotFoundComponent
+        redirectTo: '/error',
+        pathMatch: 'full'
       }
     ]
 
@@ -47,6 +48,10 @@ const appRoutes: Routes = [
   {
     path: 'bookings',
     component: TicketComponent
+  },
+  {
+    path: 'error',
+    component: PageNotFoundComponent
   }
 ];
 

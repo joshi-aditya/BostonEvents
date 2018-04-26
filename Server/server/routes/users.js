@@ -78,4 +78,28 @@ router.post('/signin', function (req, res, next) {
   });
 });
 
+router.get('/:id', function (req, res, next) {
+  jwt.verify(req.query.token, 'secret', function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        title: 'Not Authenicated',
+        error: err
+      });
+    }
+    User.findById(decoded.user._id, function (err, user) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(201).json({
+        message: 'Current User',
+        obj: user,
+        userId: user._id
+      });
+    });
+  });
+});
+
 module.exports = router;

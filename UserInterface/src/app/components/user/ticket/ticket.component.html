@@ -1,12 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="text-right font-weight-bold mt-4">Welcome,
-        {{this.userAccountService.user.firstName + ' ' + this.userAccountService.user.lastName | uppercase }}</h3>
-      <h4 class="text-center mb-4">Your Bookings..</h4>
-    </div>
-    <div class="col-10 offset-1 my-4">
-      <app-display-events></app-display-events>
+<div class="bg-color">
+  <div class="container py-5">
+    <div class="box-shadow">
+      <div class="row mb-5">
+        <div class="col-12">
+          <h4 class="text-center my-4">Your Recent Bookings</h4>
+          <hr />
+        </div>
+        <div class="col-10 offset-1 my-4">
+          <div *ngIf="hasBooking">
+
+          </div>
+          <div *ngIf="!hasBooking">
+            <div class="row" style="height: 25rem;">
+              <img
+                style="max-width: 100%; max-height: 100%"
+                class="mx-auto"
+                src="https://cdn.evbstatic.com/s3-build/perm_001/bd3414/django/images/pages/saved_events/no_events_2x.png"
+                alt=" No booking image">
+            </div>
+            <p class="text-center my-4">You can see your bookings here</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

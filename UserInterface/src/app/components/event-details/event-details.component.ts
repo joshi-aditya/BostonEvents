@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Events } from '../../models/events';
 import { EventsService } from '../../services/events.service';
 
@@ -17,7 +17,8 @@ export class EventDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private eventService: EventsService
+    private eventService: EventsService,
+    private router: Router
   ) {
   }
 
@@ -27,6 +28,9 @@ export class EventDetailsComponent implements OnInit {
         data => {
           this.allEvnts = data.slice();
           this.getEvntDetail();
+          if (!this.evtInfo) {
+            this.router.navigateByUrl('/error');
+          }
         },
         error1 => console.error(error1)
       );
@@ -42,7 +46,6 @@ export class EventDetailsComponent implements OnInit {
           this.cost = 'Free';
         }
         this.newDate = new Date(evt.date);
-        console.log(this.evtInfo);
       }
     });
   }

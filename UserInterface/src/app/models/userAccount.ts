@@ -6,6 +6,6 @@ export class UserAccount {
     public password: string,
     public firstName?: string,
     public lastName?: string,
-    private bookings?: Array<Booking>) {
+    public bookings?: Array<Booking>) {
   }
 }
