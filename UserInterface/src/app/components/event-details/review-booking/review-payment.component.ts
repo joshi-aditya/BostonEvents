@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from '../../../services/events.service';
+import { Booking } from '../../../models/Booking';
+import { UserAccountService } from '../../../services/userAccount.service';
+import { UserAccount } from '../../../models/userAccount';
+import { BookingService } from '../../../services/booking.service';
 
 @Component({
   selector: 'app-review-payment',
@@ -18,7 +22,9 @@ export class ReviewPaymentComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private eventsService: EventsService
+    private eventsService: EventsService,
+    private userAccountService: UserAccountService,
+    private bookingService: BookingService
   ) {
   }
 
@@ -53,6 +59,23 @@ export class ReviewPaymentComponent implements OnInit {
         this.zero = false;
       }
     }
+  }
+
+  onBookNow() {
+    let user: UserAccount;
+    this.userAccountService.getCurrentUser().subscribe(
+      data => {
+        user = data;
+        const booking = new Booking(
+          this.evt,
+          user,
+          this.qty,
+          this.totalCost,
+          new Date()
+        );
+        this.bookingService.updateBooking(booking)
+          .subscribe(result => console.log(result));
+      });
   }
 
 }

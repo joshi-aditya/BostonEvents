@@ -38,7 +38,7 @@ export class UserAccountService {
     return this.http.get<UserResponse>(`${this.url}/getUser` + token)
       .pipe(map(data => {
         localStorage.setItem('user', JSON.stringify(data.obj));
-        console.log(data.obj);
+        this.user = data.obj;
         return data.obj;
       }), catchError(error => {
         console.error(error.error);

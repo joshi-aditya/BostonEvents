@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Booking } from '../models/Booking';
 import { _throw } from 'rxjs/observable/throw';
@@ -12,7 +12,7 @@ export class BookingService {
   ) {
   }
 
-  url = 'http://localhost:3000/';
+  url = 'http://localhost:3000/bookings';
 
   getBookingByUserId(userId: string) {
     return this.http.get<BookingResponse>(`${this.url}/byUser/${userId}`)
@@ -30,6 +30,13 @@ export class BookingService {
           return data.obj;
         }, catchError(err => _throw(err.error)))
       );
+  }
+
+  updateBooking(booking: Booking) {
+    const body = JSON.stringify(booking);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post(`${this.url}`, body, {headers: headers})
+      .pipe(map(result  => result));
   }
 
 }

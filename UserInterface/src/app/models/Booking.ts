@@ -8,6 +8,6 @@ export class Booking {
     public numberOfTickets: number,
     public amount: any,
     public bookingDate: Date,
-    public _id: string
+    public _id?: string
   ) {}
 }
