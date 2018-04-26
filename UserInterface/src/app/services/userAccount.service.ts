@@ -8,7 +8,6 @@ import { _throw } from 'rxjs/observable/throw';
 export class UserAccountService {
   user: UserAccount;
   events: Events[];
-  userId: string;
 
   constructor(
     private http: HttpClient

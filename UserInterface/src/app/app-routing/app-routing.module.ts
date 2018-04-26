@@ -4,6 +4,7 @@ import { HomeComponent } from '../components/home/home.component';
 import { UserComponent } from '../components/user/user.component';
 import { BrowseEventsComponent } from '../components/browse-events/browse-events.component';
 import { EventDetailsComponent } from '../components/event-details/event-details.component';
+import { TicketComponent } from '../components/user/ticket/ticket.component';
 
 const appRoutes: Routes = [
   {
@@ -31,6 +32,10 @@ const appRoutes: Routes = [
   {
     path: 'events',
     component: EventDetailsComponent
+  },
+  {
+    path: 'bookings',
+    component: TicketComponent
   }
 ];
 

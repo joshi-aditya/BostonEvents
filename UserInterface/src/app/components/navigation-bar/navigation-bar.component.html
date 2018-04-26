@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 p-0">
         <nav class="navbar navbar-expand-md navbar-light p-0">
-          <a class="navbar-brand cursor-pointer ml-4" routerLink="home">EventHandler</a>
+          <a class="navbar-brand cursor-pointer ml-4 font-weight-bold text-secondary" routerLink="home">EventHandler</a>
 
           <div class="ml-auto">
             <ul class="navbar-nav">
@@ -12,14 +12,14 @@
               </li>
               <li class="nav-item dropdown leftside-border" *ngIf="isLoggedIn()">
                 <a class="nav-link dropdown-toggle p-4 cursor-pointer">
-                  {{this.userAccountService.user.firstName + ' ' + this.userAccountService.user.lastName}}
+                  {{this.userAccountService.user.firstName + ' ' + this.userAccountService.user.lastName | uppercase}}
                 </a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/">Tickets</a>
+                  <a class="dropdown-item" routerLink="bookings">Tickets</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item md-hide" routerLink="browse">Browse Events</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item cursor-pointer" (click)="onLogout()">Log out</a>
+                  <a class="dropdown-item cursor-pointer text-secondary" (click)="onLogout()">Log out</a>
                 </div>
               </li>
               <li class="nav-item leftside-border">

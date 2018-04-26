@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserAccountService } from '../../services/userAccount.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { UserAccountService } from '../../services/userAccount.service';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss']
 })
-export class NavigationBarComponent implements OnInit, OnChanges {
+export class NavigationBarComponent implements OnInit {
 
   userName: string;
   constructor(
@@ -19,7 +19,6 @@ export class NavigationBarComponent implements OnInit, OnChanges {
     if (this.isLoggedIn()) {
       this.userName = this.userAccountService.user.firstName + ' ' + this.userAccountService.user.lastName;
     }
-    console.log(this.userName);
   }
 
   isLoggedIn() {
@@ -28,13 +27,6 @@ export class NavigationBarComponent implements OnInit, OnChanges {
 
   onLogout() {
     this.userAccountService.logOut();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.isLoggedIn()) {
-      this.userName = this.userAccountService.user.firstName + ' ' + this.userAccountService.user.lastName;
-    }
-    console.log(this.userName);
   }
 
 }
