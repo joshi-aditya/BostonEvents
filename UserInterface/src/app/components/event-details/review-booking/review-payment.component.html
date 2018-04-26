@@ -30,7 +30,7 @@
                 <td data-th="Quantity">
                   <input type="number" min="0" max="10"
                          class="form-control text-center product-qty"
-                         style="width:60px;" value="1" (ngModelChange)="this.findCost($event)" [ngModel]="this.numberOfTickets">
+                         style="width:60px;" value="1" (ngModelChange)="this.findCost($event)" [ngModel]="this.qty">
                 </td>
                 <td data-th="Subtotal" class="text-center">${{this.totalCost}}</td>
               </tr>

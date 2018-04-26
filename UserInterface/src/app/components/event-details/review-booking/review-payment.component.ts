@@ -17,7 +17,7 @@ export class ReviewPaymentComponent implements OnInit {
   evt: Events;
   cost: string;
   totalCost: any;
-  numberOfTickets: number;
+  qty: number;
   zero: boolean;
 
   constructor(
@@ -56,8 +56,8 @@ export class ReviewPaymentComponent implements OnInit {
 
   findCost(quantity) {
     if (this.cost !== 'Free') {
-      this.numberOfTickets = parseInt(quantity, 10);
-      this.totalCost = parseInt(this.cost.slice(), 10) * this.numberOfTickets;
+      this.qty = parseInt(quantity, 10);
+      this.totalCost = parseInt(this.cost.slice(), 10) * this.qty;
       if (this.totalCost === 0) {
         this.zero = true;
       } else {
@@ -74,7 +74,7 @@ export class ReviewPaymentComponent implements OnInit {
         const booking = new Booking(
           this.evt,
           user,
-          this.numberOfTickets,
+          this.qty,
           this.totalCost,
           new Date()
         );

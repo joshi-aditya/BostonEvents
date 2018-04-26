@@ -1,10 +1,14 @@
-<div class="col-12">
-  <a [routerLink]="['/bookings', this.booking._id]">
-    <img src="{{this.booking.event.imageLink}}" alt="ImageFile">
-    <p>{{this.newDate.toDateString() | uppercase}}</p>
-    <p>{{this.booking.event.name}}</p>
-    <p>{{this.price}}
-      order #{{this.booking.event._id.slice(6)}} of
-      {{this.booking.numberOfTickets}} Ticket on {{this.bookingDate | date: "MMMM d, y"}}</p>
+<div class="box my-4">
+  <a class="cursor-pointer">
+    <div class="row h-100">
+      <div class="col-5 col-md-4 d-flex justify-content-end flex-column">
+        <img [src]="this.booking.event.imageLink" alt="Improve your internet connection" class="img-fluid">
+      </div>
+      <div class="col-7 col-md-8">
+        <p class="my-3 px-3 first-p">{{this.newDate.toDateString()}}</p>
+        <p class="my-2 px-3 second-p">{{this.booking.event.name}}</p>
+        <p class="my-2 px-3 third-p">{{this.booking.event.streetAddress+', ' +this.booking.event.location}}</p>
+      </div>
+    </div>
   </a>
 </div>

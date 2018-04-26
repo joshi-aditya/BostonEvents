@@ -33,7 +33,9 @@ export class BookingService {
   }
 
   updateBooking(booking: Booking) {
+    console.log(booking);
     const body = JSON.stringify(booking);
+    console.log(body);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(`${this.url}`, body, {headers: headers})
       .pipe(map(result  => result));
