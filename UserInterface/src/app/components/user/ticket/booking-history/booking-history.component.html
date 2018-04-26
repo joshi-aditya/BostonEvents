@@ -1,8 +1,10 @@
 <div class="col-12">
-  <img src="{{this.booking.event.imageLink}}" alt="ImageFile">
-  <p>{{this.newDate.toDateString() | uppercase}}</p>
-  <p>{{this.booking.event.name}}</p>
-  <p>{{this.price}}
-    order #{{this.booking.event._id.slice(6)}} of
-    {{this.booking.numberOfTickets}} Ticket on {{this.bookingDate | date: "MMMM d, y"}}</p>
+  <a [routerLink]="['/bookings', this.booking._id]">
+    <img src="{{this.booking.event.imageLink}}" alt="ImageFile">
+    <p>{{this.newDate.toDateString() | uppercase}}</p>
+    <p>{{this.booking.event.name}}</p>
+    <p>{{this.price}}
+      order #{{this.booking.event._id.slice(6)}} of
+      {{this.booking.numberOfTickets}} Ticket on {{this.bookingDate | date: "MMMM d, y"}}</p>
+  </a>
 </div>

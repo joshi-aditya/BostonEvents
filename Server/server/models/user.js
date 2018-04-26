@@ -20,6 +20,9 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  booking: {
+    type: Schema.Types.Object,
   }
 }, {
   usePushEach: true

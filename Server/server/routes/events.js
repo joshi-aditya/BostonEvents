@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Events = require('../models/events');
 
-/* Get events. */
-router.get('/', function (req, res, next) {
-  Events.find({date : {'$gte': new Date()}}).sort({date: 1})
+/* Get events by ID. */
+
+router.get('/byID/:id', function (req, res, next) {
+  const id = req.params.id;
+  Events.findOne({ _id: ObjectId(id) })
     .exec(function (err, events) {
       if (err) {
         return res.status(500).json({
@@ -20,11 +22,51 @@ router.get('/', function (req, res, next) {
 });
 
 /** Get events by category */
+
 router.get('/:category', function(req, res, next){
-  
+
   const category = req.params.category;
-  
+
   Events.find({category: category, date : {'$gte': new Date()}}).sort({date: 1})
+    .exec(function (err, events) {
+      if (err) {
+        return res.status(500).json({
+          title : 'An error occurred',
+          error : err
+        });
+      }
+      res.status(200).json({
+        message : 'Success',
+        obj : events
+      });
+    });
+});
+
+/** for lazy loading */
+router.get('/start/:skip/limit/:limit', function (req, res, next) {
+
+  const skip = Number(req.params.skip);
+  const limit = Number(req.params.limit);
+
+  Events.find({date : {'$gte': new Date()}}).sort({date: 1}).skip(skip).limit(limit)
+    .exec(function (err, events) {
+      if (err) {
+        return res.status(500).json({
+          title : 'An error occurred',
+          error : err
+        });
+      }
+      res.status(200).json({
+        message : 'Success',
+        obj : events
+      });
+    });
+});
+
+/* Get events. */
+
+router.get('/', function (req, res, next) {
+  Events.find({date : {'$gte': new Date()}}).sort({date: 1})
     .exec(function (err, events) {
       if (err) {
         return res.status(500).json({
@@ -65,27 +107,6 @@ router.post('/', function (req, res, next) {
       obj : result
     });
   });
-});
-
-/** for lazy loading */
-router.get('/start/:skip/limit/:limit', function (req, res, next) {
-  
-  const skip = Number(req.params.skip);
-  const limit = Number(req.params.limit);
-  
-  Events.find({date : {'$gte': new Date()}}).sort({date: 1}).skip(skip).limit(limit)
-    .exec(function (err, events) {
-      if (err) {
-        return res.status(500).json({
-          title : 'An error occurred',
-          error : err
-        });
-      }
-      res.status(200).json({
-        message : 'Success',
-        obj : events
-      });
-    });
 });
 
 module.exports = router;

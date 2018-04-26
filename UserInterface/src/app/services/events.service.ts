@@ -6,8 +6,8 @@ import { Events } from '../models/events';
 
 @Injectable()
 export class EventsService {
-  events: Events[];
 
+  events: Events[];
   url = 'http://localhost:3000/events';
 
   constructor(private http: HttpClient) {
@@ -16,7 +16,8 @@ export class EventsService {
   getEventsByCategory(category: string) {
     return this.http.get<EventResponse>(`${this.url}/${category}`)
       .pipe(map(data => {
-        return data.obj.slice();
+        this.events = data.obj.slice();
+        return this.events;
       }), catchError(
         error => _throw(error.error)
       ));
@@ -32,10 +33,20 @@ export class EventsService {
       ));
   }
 
+  getEventsByID(id: string) {
+    return this.http.get<EventResponse>(`${this.url}/byID/${id}`)
+      .pipe(map(data => {
+        this.events = data.obj.slice();
+        return this.events;
+      }), catchError(
+        error => _throw(error.error)
+      ));
+  }
+
   getEvents(skip: number, limit: number) {
 
-    const paramaters = `/start/${skip}/limit/${limit}`;
-    return this.http.get<EventResponse>(this.url + paramaters)
+    const parameters = `/start/${skip}/limit/${limit}`;
+    return this.http.get<EventResponse>(this.url + parameters)
       .pipe(map(data => {
         this.events = data.obj.slice();
         return this.events;

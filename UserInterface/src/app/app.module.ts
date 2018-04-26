@@ -24,6 +24,8 @@ import { TicketComponent } from './components/user/ticket/ticket.component';
 import { EventsService } from './services/events.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookingHistoryComponent } from './components/user/ticket/booking-history/booking-history.component';
+import { ReviewPaymentComponent } from './components/event-details/review-booking/review-payment.component';
+import { OrderSummaryComponent } from './components/user/ticket/booking-history/order-summary/order-summary.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { BookingHistoryComponent } from './components/user/ticket/booking-histor
     EventDetailsComponent,
     TicketComponent,
     PageNotFoundComponent,
-    BookingHistoryComponent
+    BookingHistoryComponent,
+    ReviewPaymentComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ export class Booking {
     public user: UserAccount,
     public numberOfTickets: number,
     public amount: any,
-    public bookingDate: Date
+    public bookingDate: Date,
+    public _id: string
   ) {}
 }

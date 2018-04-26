@@ -18,6 +18,14 @@ const bookingSchema = new Schema({
   numberOfTickets: {
     type: Number,
     required: true
+  },
+  amount: {
+    type: Number,
+    required: true
+  },
+  bookingDate: {
+    type: Date,
+    required: true
   }
 }, {
   usePushEach: true

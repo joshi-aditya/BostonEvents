@@ -1,6 +1,6 @@
 <div class="bg-color">
   <div class="container py-5">
-    <div class="box-shadow">
+    <div class="box-shadow rounded">
       <div class="row no-gutters bg-white border-bottom">
         <div class="col-8">
           <img src="{{this.evtInfo?.imageLink}}" alt="Image" class="w-100">
@@ -17,7 +17,7 @@
       <div class="row no-gutters bg-white">
         <div class="col-4 offset-8">
           <div class="col-12">
-            <button class="btn btn-success my-3 w-100">Register</button>
+            <button class="btn btn-success my-3 w-100" [routerLink]="['/review', this.evtInfo?._id]">Register</button>
           </div>
         </div>
       </div>

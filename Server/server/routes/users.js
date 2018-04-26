@@ -4,48 +4,6 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-/** Creating users. */
-router.post('/', function (req, res, next) {
-
-  const user = new User({
-    firstName : req.body.firstName,
-    lastName : req.body.lastName,
-    password : bcrypt.hashSync(req.body.password, 10),
-    email : req.body.email
-  });
-
-  user.save(function (err, result) {
-    if (err) {
-      return res.status(500).json({
-        title : 'Error while saving user',
-        error : err
-      });
-    }
-    res.status(201).json({
-      title : 'User created',
-      obj : result
-    });
-  });
-});
-
-/** get list of users */
-router.get('/', function (req, res, next) {
-
-  User.find()
-    .exec(function (err, users) {
-      if (err) {
-        return res.status(500).json({
-          title : 'An error occurred',
-          error : err
-        });
-      }
-      res.status(200).json({
-        message : 'Success',
-        obj : users
-      });
-    });
-});
-
 /** User sign in */
 router.post('/signin', function (req, res, next) {
 
@@ -101,5 +59,49 @@ router.get('/:id', function (req, res, next) {
     });
   });
 });
+
+
+/** Creating users. */
+router.post('/', function (req, res, next) {
+
+  const user = new User({
+    firstName : req.body.firstName,
+    lastName : req.body.lastName,
+    password : bcrypt.hashSync(req.body.password, 10),
+    email : req.body.email
+  });
+
+  user.save(function (err, result) {
+    if (err) {
+      return res.status(500).json({
+        title : 'Error while saving user',
+        error : err
+      });
+    }
+    res.status(201).json({
+      title : 'User created',
+      obj : result
+    });
+  });
+});
+
+/** get list of users */
+router.get('/', function (req, res, next) {
+
+  User.find()
+    .exec(function (err, users) {
+      if (err) {
+        return res.status(500).json({
+          title : 'An error occurred',
+          error : err
+        });
+      }
+      res.status(200).json({
+        message : 'Success',
+        obj : users
+      });
+    });
+});
+
 
 module.exports = router;

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Order for {{this.booking?._id}}</h2>
+      <p>{{this.price}}
+        order #{{this.booking.event._id.slice(6)}} of
+        {{this.booking.numberOfTickets}} Ticket on {{this.bookingDate | date: "MMMM d, y"}}</p>
+    </div>
+  </div>
+</div>
