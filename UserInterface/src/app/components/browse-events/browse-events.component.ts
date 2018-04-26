@@ -25,6 +25,7 @@ export class BrowseEventsComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     if (!this.route.params['_value'].category) {
       window.addEventListener('scroll', this.scroll, true);
       this.getEvents(this.start, this.limit);
