@@ -14,7 +14,7 @@ export class EventsService {
   }
 
   getEventsByCategory(category: string) {
-    return this.http.get<EventResponse>(`${this.url}/${category}`)
+    return this.http.get<EventsResponse>(`${this.url}/${category}`)
       .pipe(map(data => {
         this.events = data.obj.slice();
         return this.events;
@@ -24,7 +24,7 @@ export class EventsService {
   }
 
   getEventsByDate() {
-    return this.http.get<EventResponse>(this.url)
+    return this.http.get<EventsResponse>(this.url)
       .pipe(map(data => {
         this.events = data.obj.slice();
         return this.events;
@@ -34,19 +34,25 @@ export class EventsService {
   }
 
   getEventsByID(id: string) {
-    return this.http.get<EventResponse>(`${this.url}/byID/${id}`)
+    const parameters = `${this.url}/byID/${id}`;
+    return this.http.get<EventRes>(parameters)
       .pipe(map(data => {
-        this.events = data.obj.slice();
-        return this.events;
+        const evt = new Events(data.obj._id,
+          data.obj.name, data.obj.description,
+          data.obj.imageLink, data.obj.category,
+          data.obj.streetAddress, data.obj.location,
+          data.obj.date, data.obj.cost);
+        console.log(evt);
+        return evt;
       }), catchError(
-        error => _throw(error.error)
+        error => error
       ));
   }
 
   getEvents(skip: number, limit: number) {
 
     const parameters = `/start/${skip}/limit/${limit}`;
-    return this.http.get<EventResponse>(this.url + parameters)
+    return this.http.get<EventsResponse>(this.url + parameters)
       .pipe(map(data => {
         this.events = data.obj.slice();
         return this.events;
@@ -56,7 +62,12 @@ export class EventsService {
   }
 }
 
-interface EventResponse {
+interface EventsResponse {
   msg: string;
   obj: Array<Events>;
+}
+
+interface EventRes {
+  msg: string;
+  obj: Events;
 }

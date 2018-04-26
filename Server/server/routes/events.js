@@ -6,8 +6,7 @@ const Events = require('../models/events');
 
 router.get('/byID/:id', function (req, res, next) {
   const id = req.params.id;
-  Events.findOne({ _id: ObjectId(id) })
-    .exec(function (err, events) {
+  Events.findById(id, function (err, events) {
       if (err) {
         return res.status(500).json({
           title : 'An error occurred',

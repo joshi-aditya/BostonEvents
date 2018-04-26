@@ -21,6 +21,7 @@ export class ReviewPaymentComponent implements OnInit {
     if (this.route.params['_value'].eventId) {
       this.eventsService.getEventsByID(this.route.params['_value'].eventId)
         .subscribe(data => {
+          console.log(data);
           this.evt = data;
         }, error => {
           console.log(error);
