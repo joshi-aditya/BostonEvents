@@ -1,6 +1,7 @@
-# WebToolsFinalProject
+# BostonEvents # 
+MongoDB, Express.js, Node.js and Angular 5
 
-## Pre-Requisites ## 
+### Pre-Requisites ###
 - Download and install MongoDb on your system. 
 - Start and connect MongoDb to port 27017
 
